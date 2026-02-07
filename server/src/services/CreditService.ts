@@ -214,6 +214,7 @@ export class CreditService {
       const transaction = await tx.transaction.create({
         data: {
           customerId: customer.id,
+          productId: product.id,
           customer_name: customer.name,
           customer_phone: customer.phone,
           customer_ktp: customer.nik,

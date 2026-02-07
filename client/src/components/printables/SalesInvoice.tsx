@@ -46,8 +46,9 @@ export const SalesInvoice = React.forwardRef<HTMLDivElement, SalesInvoiceProps>(
         <tbody>
           <tr>
             <td className="border border-black px-4 py-2">
-              <p className="font-bold">Kredit Produk - Tenor {contract.tenor_months} Bulan</p>
-              <p className="text-xs italic text-gray-600">Terdaftar di sistem pada {new Date(contract.start_date).toLocaleDateString('id-ID')}</p>
+              <p className="font-bold">{contract.transaction.product?.name || 'Kredit Produk'}</p>
+              <p className="text-[10px] text-gray-500 italic uppercase">SKU: {contract.transaction.product?.sku || '-'}</p>
+              <p className="text-[10px] italic text-gray-600 mt-1">Tenor {contract.tenor_months} Bulan - Terdaftar pada {new Date(contract.start_date).toLocaleDateString('id-ID')}</p>
             </td>
             <td className="border border-black px-4 py-2 text-right">
               {formatRupiah(contract.transaction.total_price)}

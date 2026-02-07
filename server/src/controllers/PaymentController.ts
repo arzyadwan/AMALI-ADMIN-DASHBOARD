@@ -17,7 +17,11 @@ export class PaymentController {
           }
         },
         include: {
-          transaction: true,
+          transaction: {
+            include: {
+              product: true
+            }
+          },
           installments: {
             orderBy: { installment_nth: 'asc' }
           }

@@ -142,6 +142,7 @@ export default function Dashboard() {
                 <thead>
                   <tr className="bg-gray-50/50 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100">
                     <th className="px-6 py-4">Customer</th>
+                    <th className="px-6 py-4">Produk</th>
                     <th className="px-6 py-4">Total Pinjaman</th>
                     <th className="px-6 py-4">Sisa Hutang</th>
                     <th className="px-6 py-4">Tenor</th>
@@ -166,6 +167,10 @@ export default function Dashboard() {
                               <p className="text-[10px] text-gray-400">{contract.transaction.customer_phone}</p>
                             </div>
                           </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <p className="font-bold text-gray-800 leading-tight">{contract.transaction.product?.name || 'N/A'}</p>
+                          <p className="text-[10px] text-gray-400 mt-0.5">{contract.transaction.product?.category} - {contract.transaction.product?.sub_category}</p>
                         </td>
                         <td className="px-6 py-4 font-medium text-gray-700">
                           {formatRupiah(parseFloat(contract.monthly_installment) * contract.tenor_months)}

@@ -1,4 +1,4 @@
-// AMALI-KREDIT API Server
+// AMALI-KREDIT API Server (Restarted to sync Prisma)
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';

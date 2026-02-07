@@ -180,6 +180,13 @@ export interface Transaction {
   total_price: string;
   dp_amount: string;
   created_at: string;
+  product?: {
+    id: number;
+    name: string;
+    sku: string;
+    category: string;
+    sub_category: string;
+  };
 }
 
 export interface Installment {
