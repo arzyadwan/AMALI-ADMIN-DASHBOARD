@@ -12,7 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: '*', // Nanti kita ganti dengan URL Vercel setelah jadi. Untuk sekarang '*' dulu biar gampang.
+    methods: ['GET', 'POST', 'PATCH', 'DELETE']
+}));
 app.use(express.json());
 
 // ============================================================================
