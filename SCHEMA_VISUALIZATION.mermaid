@@ -1,0 +1,46 @@
+erDiagram
+    products ||--o{ inventory_logs : has
+    products {
+        bigint id PK
+        string sku
+        string name
+        decimal base_price
+        enum category_type "electronic|furniture"
+        jsonb specifications "Validation via Zod Schema"
+    }
+
+    loan_schemes ||--o{ transactions : applies_to
+    loan_schemes {
+        int id PK
+        string name
+        decimal interest_rate_flat
+        jsonb tenor_options "[3, 6, 12]"
+        decimal penalty_fee_daily
+        boolean is_active
+    }
+
+    transactions ||--|{ credit_contracts : generates
+    transactions {
+        bigint id PK
+        bigint customer_id
+        decimal total_amount
+        jsonb scheme_snapshot "COPY of loan_schemes row"
+        enum status
+        timestamp created_at
+    }
+
+    credit_contracts ||--|{ installments : has
+    credit_contracts {
+        bigint id PK
+        decimal principal
+        decimal total_interest
+        decimal monthly_amount
+    }
+
+    installments {
+        bigint id PK
+        date due_date
+        decimal amount_due
+        decimal penalty_accrued
+        enum status "unpaid|paid|late"
+    }

@@ -1,0 +1,281 @@
+{
+  "products": [
+    {
+      "sku": "EL-KUL-001",
+      "name": "Kulkas Samsung 2 Pintu RT19",
+      "base_price": 3800000,
+      "stock_qty": 5,
+      "category": "ELECTRONIC",
+      "sub_category": "Kulkas",
+      "attributes": { "brand": "Samsung", "watt": 100, "capacity": "203 Liter", "warranty": "10 Tahun" }
+    },
+    {
+      "sku": "EL-KUL-002",
+      "name": "Kulkas Sharp 1 Pintu Kirei",
+      "base_price": 1950000,
+      "stock_qty": 8,
+      "category": "ELECTRONIC",
+      "sub_category": "Kulkas",
+      "attributes": { "brand": "Sharp", "watt": 90, "capacity": "133 Liter", "color": "Pink" }
+    },
+    {
+      "sku": "EL-KUL-003",
+      "name": "Kulkas Polytron Belleza 2 Pintu",
+      "base_price": 3100000,
+      "stock_qty": 4,
+      "category": "ELECTRONIC",
+      "sub_category": "Kulkas",
+      "attributes": { "brand": "Polytron", "watt": 110, "design": "Tempered Glass Door" }
+    },
+    {
+      "sku": "EL-TV-001",
+      "name": "TV LED Polytron 32 Inch",
+      "base_price": 2100000,
+      "stock_qty": 10,
+      "category": "ELECTRONIC",
+      "sub_category": "TV",
+      "attributes": { "brand": "Polytron", "resolution": "HD Ready", "type": "LED" }
+    },
+    {
+      "sku": "EL-TV-002",
+      "name": "Smart TV Samsung 43 Inch UHD",
+      "base_price": 5500000,
+      "stock_qty": 4,
+      "category": "ELECTRONIC",
+      "sub_category": "TV",
+      "attributes": { "brand": "Samsung", "resolution": "4K UHD", "os": "Tizen" }
+    },
+    {
+      "sku": "EL-TV-003",
+      "name": "Android TV Sony Bravia 55 Inch",
+      "base_price": 8500000,
+      "stock_qty": 2,
+      "category": "ELECTRONIC",
+      "sub_category": "TV",
+      "attributes": { "brand": "Sony", "resolution": "4K HDR", "os": "Android TV" }
+    },
+    {
+      "sku": "EL-LAP-001",
+      "name": "Laptop ASUS Vivobook 14",
+      "base_price": 7200000,
+      "stock_qty": 3,
+      "category": "ELECTRONIC",
+      "sub_category": "Laptop",
+      "attributes": { "brand": "ASUS", "cpu": "Core i3", "ram": "8GB", "storage": "512GB SSD" }
+    },
+    {
+      "sku": "EL-LAP-002",
+      "name": "Laptop Acer Aspire 5 Slim",
+      "base_price": 6800000,
+      "stock_qty": 5,
+      "category": "ELECTRONIC",
+      "sub_category": "Laptop",
+      "attributes": { "brand": "Acer", "cpu": "Ryzen 3", "ram": "8GB", "storage": "256GB SSD" }
+    },
+    {
+      "sku": "EL-LAP-003",
+      "name": "Laptop Lenovo Ideapad Slim 3",
+      "base_price": 6500000,
+      "stock_qty": 6,
+      "category": "ELECTRONIC",
+      "sub_category": "Laptop",
+      "attributes": { "brand": "Lenovo", "cpu": "Celeron N4020", "ram": "4GB", "storage": "256GB SSD" }
+    },
+    {
+      "sku": "EL-SPK-001",
+      "name": "Speaker Polytron PMA 9502",
+      "base_price": 950000,
+      "stock_qty": 10,
+      "category": "ELECTRONIC",
+      "sub_category": "Speaker",
+      "attributes": { "brand": "Polytron", "bluetooth": true, "feature": "Karaoke + Mic" }
+    },
+    {
+      "sku": "EL-SPK-002",
+      "name": "Speaker JBL PartyBox 100",
+      "base_price": 4500000,
+      "stock_qty": 2,
+      "category": "ELECTRONIC",
+      "sub_category": "Speaker",
+      "attributes": { "brand": "JBL", "battery": "12 Hours", "light_show": true }
+    },
+    {
+      "sku": "EL-SPK-003",
+      "name": "Speaker Simbadda CST 800N",
+      "base_price": 450000,
+      "stock_qty": 15,
+      "category": "ELECTRONIC",
+      "sub_category": "Speaker",
+      "attributes": { "brand": "Simbadda", "type": "Multimedia 2.1", "output": "30W RMS" }
+    },
+    {
+      "sku": "EL-WSH-001",
+      "name": "Mesin Cuci Sharp 2 Tabung 7KG",
+      "base_price": 1400000,
+      "stock_qty": 8,
+      "category": "ELECTRONIC",
+      "sub_category": "Mesin Cuci",
+      "attributes": { "brand": "Sharp", "type": "Twin Tub", "capacity": "7 KG" }
+    },
+    {
+      "sku": "EL-WSH-002",
+      "name": "Mesin Cuci LG Front Load 8KG",
+      "base_price": 4200000,
+      "stock_qty": 3,
+      "category": "ELECTRONIC",
+      "sub_category": "Mesin Cuci",
+      "attributes": { "brand": "LG", "type": "Front Load", "technology": "Inverter Direct Drive" }
+    },
+    {
+      "sku": "EL-WSH-003",
+      "name": "Mesin Cuci Samsung Top Load 9KG",
+      "base_price": 3100000,
+      "stock_qty": 4,
+      "category": "ELECTRONIC",
+      "sub_category": "Mesin Cuci",
+      "attributes": { "brand": "Samsung", "type": "Top Load", "feature": "Wobble Technology" }
+    },
+    {
+      "sku": "FUR-BED-001",
+      "name": "Springbed Central Deluxe 160x200",
+      "base_price": 1800000,
+      "stock_qty": 5,
+      "category": "FURNITURE",
+      "sub_category": "Springbed",
+      "attributes": { "brand": "Central", "size": "160x200 (No. 2)", "color": "Merah" }
+    },
+    {
+      "sku": "FUR-BED-002",
+      "name": "Springbed Comforta Super Choice 180x200",
+      "base_price": 2500000,
+      "stock_qty": 3,
+      "category": "FURNITURE",
+      "sub_category": "Springbed",
+      "attributes": { "brand": "Comforta", "size": "180x200 (No. 1)", "feature": "Latex Layer" }
+    },
+    {
+      "sku": "FUR-BED-003",
+      "name": "Kasur Busa Inoac 120x200",
+      "base_price": 950000,
+      "stock_qty": 10,
+      "category": "FURNITURE",
+      "sub_category": "Springbed",
+      "attributes": { "brand": "Inoac", "type": "Foam", "warranty": "10 Tahun Kempes" }
+    },
+    {
+      "sku": "FUR-TBL-001",
+      "name": "Meja Makan Kayu Jati 4 Kursi",
+      "base_price": 3500000,
+      "stock_qty": 2,
+      "category": "FURNITURE",
+      "sub_category": "Meja",
+      "attributes": { "material": "Jati", "dimensions": "120x80cm", "set": "1 Meja + 4 Kursi" }
+    },
+    {
+      "sku": "FUR-TBL-002",
+      "name": "Meja Belajar Olympic Minimalis",
+      "base_price": 650000,
+      "stock_qty": 12,
+      "category": "FURNITURE",
+      "sub_category": "Meja",
+      "attributes": { "brand": "Olympic", "material": "Particle Board", "color": "Beech" }
+    },
+    {
+      "sku": "FUR-TBL-003",
+      "name": "Meja Tamu Kaca Minimalis",
+      "base_price": 850000,
+      "stock_qty": 5,
+      "category": "FURNITURE",
+      "sub_category": "Meja",
+      "attributes": { "material": "Kaca & Besi", "style": "Modern" }
+    },
+    {
+      "sku": "FUR-CHR-001",
+      "name": "Sofa L Minimalis Sudut",
+      "base_price": 2800000,
+      "stock_qty": 4,
+      "category": "FURNITURE",
+      "sub_category": "Kursi",
+      "attributes": { "material": "Fabric", "color": "Abu-abu", "pillows": 5 }
+    },
+    {
+      "sku": "FUR-CHR-002",
+      "name": "Kursi Kantor Hidrolik Jaring",
+      "base_price": 750000,
+      "stock_qty": 15,
+      "category": "FURNITURE",
+      "sub_category": "Kursi",
+      "attributes": { "type": "Office Chair", "feature": "Adjustable Height", "wheels": true }
+    },
+    {
+      "sku": "FUR-CHR-003",
+      "name": "Kursi Plastik Napolly 101",
+      "base_price": 75000,
+      "stock_qty": 50,
+      "category": "FURNITURE",
+      "sub_category": "Kursi",
+      "attributes": { "brand": "Napolly", "material": "Plastik", "stackable": true }
+    },
+    {
+      "sku": "FUR-LMR-001",
+      "name": "Lemari Pakaian 3 Pintu Cermin",
+      "base_price": 1600000,
+      "stock_qty": 6,
+      "category": "FURNITURE",
+      "sub_category": "Lemari",
+      "attributes": { "material": "Particle Board", "doors": 3, "mirror": true }
+    },
+    {
+      "sku": "FUR-LMR-002",
+      "name": "Lemari Plastik Napolly 4 Susun",
+      "base_price": 450000,
+      "stock_qty": 20,
+      "category": "FURNITURE",
+      "sub_category": "Lemari",
+      "attributes": { "brand": "Napolly", "material": "Plastik", "motif": "Rotan" }
+    },
+    {
+      "sku": "FUR-LMR-003",
+      "name": "Lemari Sliding 2 Pintu Putih",
+      "base_price": 2200000,
+      "stock_qty": 3,
+      "category": "FURNITURE",
+      "sub_category": "Lemari",
+      "attributes": { "type": "Sliding Door", "color": "White Glossy", "width": "120cm" }
+    },
+    {
+      "sku": "FUR-SPR-001",
+      "name": "Bedcover Set Kintakun King 180",
+      "base_price": 350000,
+      "stock_qty": 25,
+      "category": "FURNITURE",
+      "sub_category": "Seprai",
+      "attributes": { "brand": "Kintakun", "material": "Microtex", "size": "180x200" }
+    },
+    {
+      "sku": "FUR-SPR-002",
+      "name": "Sprei MyLove Queen 160",
+      "base_price": 150000,
+      "stock_qty": 40,
+      "category": "FURNITURE",
+      "sub_category": "Seprai",
+      "attributes": { "brand": "MyLove", "material": "Katun CVC", "size": "160x200" }
+    },
+    {
+      "sku": "FUR-SPR-003",
+      "name": "Sprei Bonita Single 120",
+      "base_price": 95000,
+      "stock_qty": 30,
+      "category": "FURNITURE",
+      "sub_category": "Seprai",
+      "attributes": { "brand": "Bonita", "material": "Disperse", "size": "120x200" }
+    }
+  ],
+  "loan_schemes": {
+    "name": "Kredit Warga Lokal 2026",
+    "interest_rate_flat": 2.5,
+    "tenor_options": [3, 6, 9, 12],
+    "min_dp_percent": 10,
+    "penalty_fee_daily": 5000
+  }
+}

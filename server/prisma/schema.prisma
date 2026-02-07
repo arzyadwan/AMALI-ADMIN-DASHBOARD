@@ -1,0 +1,156 @@
+// Lokasi: server/prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// --- ENUMS (Pilihan Terbatas) ---
+
+enum CategoryType {
+  ELECTRONIC // Butuh SN, IMEI
+  FURNITURE  // Butuh Dimensi, Bahan
+  VEHICLE    // Butuh No Rangka, No Mesin
+}
+
+enum TransactionStatus {
+  PENDING   // Baru dibuat, belum final
+  ACTIVE    // Sedang berjalan (cicilan)
+  PAID      // Lunas
+  VOID      // Dibatalkan admin
+  BAD_DEBT  // Macet total (Write-off)
+}
+
+enum InstallmentStatus {
+  UNPAID    // Belum bayar
+  PARTIAL   // Bayar sebagian
+  PAID      // Lunas bulan ini
+  LATE      // Telat (Kena denda)
+}
+
+// --- MODELS (Tabel) ---
+
+model Product {
+  id          Int          @id @default(autoincrement())
+  sku         String       @unique // Kode Barang (e.g., TV-SON-001)
+  name        String
+  base_price  Decimal      @db.Decimal(19, 4) // Harga Modal
+  stock_qty   Int          @default(0)
+  category    CategoryType
+  sub_category String       // e.g., Kulkas, TV, Springbed
+  
+  // LOGIKA FLEKSIBEL (JSONB)
+  // Electronic: { "sn": "...", "imei": "...", "warranty": "1 Year" }
+  // Furniture: { "dimensions": "200x100", "material": "Jati", "color": "Brown" }
+  attributes  Json         
+
+  is_active   Boolean      @default(true)
+  created_at  DateTime     @default(now())
+  updated_at  DateTime     @updatedAt
+
+  @@map("products")
+}
+
+model Customer {
+  id          Int           @id @default(autoincrement())
+  nik         String        @unique // Nomor KTP
+  name        String
+  phone       String        @unique
+  address     String        @db.Text
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @updatedAt
+
+  transactions Transaction[]
+
+  @@map("customers")
+}
+
+model LoanScheme {
+  // Tabel ini untuk konfigurasi aturan kredit di Dashboard
+  id                Int      @id @default(autoincrement())
+  name              String   // Contoh: "Kredit Promo Lebaran"
+  interest_rate     Decimal  @db.Decimal(5, 2) // Bunga % per bulan
+  min_dp_percent    Decimal  @db.Decimal(5, 2) // Minimal DP %
+  
+  // JSON Array: [3, 6, 9, 12] -> Pilihan tenor yang tersedia
+  tenor_options     Json     
+  
+  penalty_fee_daily Decimal  @db.Decimal(15, 2) // Denda harian (Rupiah)
+  is_active         Boolean  @default(true)
+
+  @@map("loan_schemes")
+}
+
+model Transaction {
+  id              Int               @id @default(autoincrement())
+  
+  // Relation to Customer
+  customerId      Int
+  customer        Customer          @relation(fields: [customerId], references: [id])
+
+  // Snapshots (Historical values)
+  customer_name   String?           
+  customer_phone  String?
+  customer_ktp    String?
+  
+  // Data Keuangan
+  total_price     Decimal           @db.Decimal(19, 4) // Harga jual total
+  dp_amount       Decimal           @db.Decimal(19, 4) // Uang muka
+  
+  // SNAPSHOT (Anti-Manipulasi)
+  // Kita COPY seluruh baris LoanScheme yang dipakai ke sini.
+  // Agar jika aturan berubah, transaksi lama tidak ikut berubah.
+  scheme_snapshot Json              
+  
+  status          TransactionStatus @default(PENDING)
+  created_at      DateTime          @default(now())
+  updated_at      DateTime          @updatedAt
+
+  // Relasi
+  contract        CreditContract?
+
+  @@map("transactions")
+}
+
+model CreditContract {
+  // Detail Teknis Kredit
+  id                  Int           @id @default(autoincrement())
+  transaction_id      Int           @unique
+  transaction         Transaction   @relation(fields: [transaction_id], references: [id])
+  
+  principal_amount    Decimal       @db.Decimal(19, 4) // Pokok Hutang (Harga - DP)
+  total_interest      Decimal       @db.Decimal(19, 4) // Total Bunga (Pokok * Rate * Tenor)
+  monthly_installment Decimal       @db.Decimal(19, 4) // Cicilan per bulan
+  
+  start_date          DateTime      @default(now())
+  due_date_day        Int           // Tanggal jatuh tempo bulanan (misal: tgl 5)
+  tenor_months        Int           // Lama angsuran (bulan)
+
+  installments        Installment[]
+
+  @@map("credit_contracts")
+}
+
+model Installment {
+  // Kartu Piutang (Buku Besar Digital)
+  id              Int               @id @default(autoincrement())
+  contract_id     Int
+  contract        CreditContract    @relation(fields: [contract_id], references: [id])
+  
+  installment_nth Int               // Angsuran ke-1, ke-2, dst
+  due_date        DateTime          // Tanggal wajib bayar
+  
+  amount_due      Decimal           @db.Decimal(19, 4) // Tagihan pokok + bunga bulan ini
+  amount_paid     Decimal           @default(0) @db.Decimal(19, 4) // Yang sudah dibayar
+  penalty_paid    Decimal           @default(0) @db.Decimal(19, 4) // Denda yang sudah dibayar
+  penalty_accrued Decimal           @default(0) @db.Decimal(19, 4) // Denda berjalan (tunggakan denda)
+  
+  status          InstallmentStatus @default(UNPAID)
+  paid_at         DateTime?
+  notes           String?
+
+  @@map("installments")
+}
