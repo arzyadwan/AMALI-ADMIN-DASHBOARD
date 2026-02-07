@@ -46,7 +46,7 @@ export class PaymentController {
   async payInstallment(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
-      const installmentId = parseInt(id);
+      const installmentId = parseInt(id as string);
 
       if (isNaN(installmentId)) {
         res.status(400).json({ success: false, error: 'Invalid installment ID' });
