@@ -15,7 +15,7 @@ import {
   type LoanScheme,
   type Customer
 } from '../services/api';
-import { UserPlus, Users, X, Search, ShoppingBag, ReceiptText, ChevronRight, Info, LayoutGrid, Monitor, Sofa, Car, CreditCard, Calendar } from 'lucide-react';
+import { UserPlus, Users, X, Search, ShoppingBag, ReceiptText, ChevronRight, Info, LayoutGrid, Monitor, Sofa, Car, CreditCard } from 'lucide-react';
 import { PRODUCT_TYPES } from '../constants/productTypes';
 
 // ============================================================================
